@@ -30,7 +30,10 @@ fun MyApp() {
         )
     )
 
-    LearnAndroidCleanArchitectureTheme {
+    LearnAndroidCleanArchitectureTheme(
+        dynamicColor = false,
+        darkTheme = false
+    ) {
         HomePage(productsViewModel)
     }
 }
