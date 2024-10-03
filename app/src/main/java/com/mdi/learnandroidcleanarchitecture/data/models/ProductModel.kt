@@ -1,6 +1,5 @@
 package com.mdi.learnandroidcleanarchitecture.data.models
 
-import com.mdi.learnandroidcleanarchitecture.domain.entities.ProductEntity
 import org.json.JSONObject
 
 data class ProductModel (

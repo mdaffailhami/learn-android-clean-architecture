@@ -1,10 +1,8 @@
 package com.mdi.learnandroidcleanarchitecture.data.repositories
 
 import arrow.core.Either
-import arrow.core.left
 import com.mdi.learnandroidcleanarchitecture.core.RequestFailure
 import com.mdi.learnandroidcleanarchitecture.data.data_sources.remote.ProductsRemoteDataSource
-import com.mdi.learnandroidcleanarchitecture.data.models.ProductModel
 import com.mdi.learnandroidcleanarchitecture.domain.entities.ProductEntity
 import com.mdi.learnandroidcleanarchitecture.domain.repositories.ProductsRepository
 

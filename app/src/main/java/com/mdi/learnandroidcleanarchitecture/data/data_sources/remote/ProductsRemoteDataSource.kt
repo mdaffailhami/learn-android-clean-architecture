@@ -1,8 +1,6 @@
 package com.mdi.learnandroidcleanarchitecture.data.data_sources.remote
 
 import arrow.core.Either
-import arrow.core.left
-import arrow.core.right
 import com.mdi.learnandroidcleanarchitecture.core.RequestFailure
 import com.mdi.learnandroidcleanarchitecture.core.apiUrl
 import com.mdi.learnandroidcleanarchitecture.core.httpClient

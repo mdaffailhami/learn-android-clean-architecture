@@ -7,6 +7,6 @@ import com.mdi.learnandroidcleanarchitecture.domain.repositories.ProductsReposit
 
 class GetProductsUseCase(private val productsRepository: ProductsRepository) {
     suspend operator fun invoke(): Either<RequestFailure, List<ProductEntity>> {
-        return productsRepository.getProducts();
+        return productsRepository.getProducts()
     }
 }
