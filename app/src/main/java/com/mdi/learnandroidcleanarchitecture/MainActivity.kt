@@ -4,26 +4,33 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.mdi.learnandroidcleanarchitecture.data.data_sources.remote.ProductsRemoteDataSource
+import com.mdi.learnandroidcleanarchitecture.data.repositories.ProductsRepositoryImpl
+import com.mdi.learnandroidcleanarchitecture.domain.use_cases.GetProductsUseCase
+import com.mdi.learnandroidcleanarchitecture.presentation.pages.HomePage
+import com.mdi.learnandroidcleanarchitecture.presentation.view_models.ProductsViewModel
 import com.mdi.learnandroidcleanarchitecture.ui.theme.LearnAndroidCleanArchitectureTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {MyApp()}
+        setContent { MyApp() }
     }
 }
 
 @Composable
-fun MyApp(){
-    LearnAndroidCleanArchitectureTheme {
+fun MyApp() {
+    val productsViewModel = ProductsViewModel(
+        GetProductsUseCase(
+            ProductsRepositoryImpl(
+                ProductsRemoteDataSource()
+            )
+        )
+    )
 
+    LearnAndroidCleanArchitectureTheme {
+        HomePage(productsViewModel)
     }
 }
