@@ -36,7 +36,7 @@ fun ProductCard(product: ProductEntity) {
     ) {
         Column(
             modifier = Modifier
-                .size(width = 200.dp, height = 350.dp)
+                .size(width = 180.dp, height = 330.dp)
                 .background(color = Color.White)
         ) {
             AsyncImage(
@@ -64,7 +64,6 @@ fun ProductCard(product: ProductEntity) {
                     )
                     Text(
                         text = product.description,
-//                    maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                         fontSize = 10.sp,
                         lineHeight = 16.sp
