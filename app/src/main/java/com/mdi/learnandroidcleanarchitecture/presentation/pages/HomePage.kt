@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.mdi.learnandroidcleanarchitecture.presentation.components.AppBar
 import com.mdi.learnandroidcleanarchitecture.presentation.components.ProductCard
 import com.mdi.learnandroidcleanarchitecture.presentation.view_models.ProductsViewModel
 
@@ -37,7 +38,7 @@ import com.mdi.learnandroidcleanarchitecture.presentation.view_models.ProductsVi
 fun HomePage(productsViewModel: ProductsViewModel) {
     productsViewModel.load()
 
-    Scaffold { innerPadding ->
+    Scaffold(topBar = { AppBar() }) { innerPadding ->
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
