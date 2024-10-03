@@ -72,4 +72,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.client.cio)
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 }
