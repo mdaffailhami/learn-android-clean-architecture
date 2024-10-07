@@ -11,29 +11,21 @@ import com.mdi.learnandroidcleanarchitecture.domain.use_cases.GetProductsUseCase
 import com.mdi.learnandroidcleanarchitecture.presentation.pages.HomePage
 import com.mdi.learnandroidcleanarchitecture.presentation.view_models.ProductsViewModel
 import com.mdi.learnandroidcleanarchitecture.ui.theme.LearnAndroidCleanArchitectureTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { MyApp() }
+        setContent {
+            LearnAndroidCleanArchitectureTheme(
+                dynamicColor = false,
+                darkTheme = false
+            ) {
+                HomePage()
+            }
+        }
     }
 }
 
-@Composable
-fun MyApp() {
-    val productsViewModel = ProductsViewModel(
-        GetProductsUseCase(
-            ProductsRepositoryImpl(
-                ProductsRemoteDataSource()
-            )
-        )
-    )
-
-    LearnAndroidCleanArchitectureTheme(
-        dynamicColor = false,
-        darkTheme = false
-    ) {
-        HomePage(productsViewModel)
-    }
-}

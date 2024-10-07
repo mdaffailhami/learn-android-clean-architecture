@@ -8,14 +8,18 @@ import com.mdi.learnandroidcleanarchitecture.core.RequestFailure
 import com.mdi.learnandroidcleanarchitecture.core.RequestState
 import com.mdi.learnandroidcleanarchitecture.domain.entities.ProductEntity
 import com.mdi.learnandroidcleanarchitecture.domain.use_cases.GetProductsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductsViewModel(private val getProductsUseCase: GetProductsUseCase) : ViewModel() {
+@HiltViewModel
+class ProductsViewModel @Inject constructor(private val getProductsUseCase: GetProductsUseCase) :
+    ViewModel() {
     val state = mutableStateOf(RequestState.Loading)
     val value = mutableStateListOf<ProductEntity>()
     var error: RequestFailure? = null
 
-    fun load(){
+    fun load() {
         viewModelScope.launch {
             state.value = RequestState.Loading
 

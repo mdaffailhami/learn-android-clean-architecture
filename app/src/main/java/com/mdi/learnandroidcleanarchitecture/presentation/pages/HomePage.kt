@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.mdi.learnandroidcleanarchitecture.core.RequestState
 import com.mdi.learnandroidcleanarchitecture.presentation.components.AppBar
 import com.mdi.learnandroidcleanarchitecture.presentation.components.ProductCard
@@ -25,7 +26,16 @@ import com.mdi.learnandroidcleanarchitecture.presentation.view_models.ProductsVi
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun HomePage(productsViewModel: ProductsViewModel) {
+fun HomePage() {
+//    val productsViewModel = ProductsViewModel(
+//        GetProductsUseCase(
+//            ProductsRepositoryImpl(
+//                ProductsRemoteDataSource()
+//            )
+//        )
+//    )
+
+    val productsViewModel = hiltViewModel<ProductsViewModel>()
     productsViewModel.load()
 
     Scaffold(topBar = { AppBar() }) { innerPadding ->
